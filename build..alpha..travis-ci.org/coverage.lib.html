@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-chokidar/chokidar/lib/nodefs-handler.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-chokidar/node_modules/chokidar/lib/nodefs-handler.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-chokidar">npmtest-chokidar (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-chokidar/chokidar/lib/nodefs-handler.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-chokidar/node_modules/chokidar/lib/nodefs-handler.js</span></h1>
     <h2>
         
         Statements: <span class="metric">7.69% <small>(17 / 221)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-chokidar/chokidar/lib/</a> » nodefs-handler.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-chokidar/node_modules/chokidar/lib/</a> &#187; nodefs-handler.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -1198,23 +1200,23 @@ var FsWatchInstances = Object.create(null);
 // * emitRaw    - function, handler which emits raw event data
 &nbsp;
 // Returns new fsevents instance
-<span class="fstat-no" title="function not covered">function createFsWatchInstance(path, options, listener, errHandler, emitRaw) {</span>
-<span class="cstat-no" title="statement not covered">  var handleEvent = <span class="fstat-no" title="function not covered">function(rawEvent, evPath) {</span></span>
-<span class="cstat-no" title="statement not covered">    listener(path);</span>
-<span class="cstat-no" title="statement not covered">    emitRaw(rawEvent, evPath, {watchedPath: path});</span>
+<span class="fstat-no" title="function not covered" >function createFsWatchInstance(path, options, listener, errHandler, emitRaw) {</span>
+<span class="cstat-no" title="statement not covered" >  var handleEvent = <span class="fstat-no" title="function not covered" >function(rawEvent, evPath) {</span></span>
+<span class="cstat-no" title="statement not covered" >    listener(path);</span>
+<span class="cstat-no" title="statement not covered" >    emitRaw(rawEvent, evPath, {watchedPath: path});</span>
 &nbsp;
     // emit based on events occuring for files from a directory's watcher in
     // case the file's watcher misses it (and rely on throttling to de-dupe)
-<span class="cstat-no" title="statement not covered">    if (evPath &amp;&amp; path !== evPath) {</span>
-<span class="cstat-no" title="statement not covered">      fsWatchBroadcast(</span>
+<span class="cstat-no" title="statement not covered" >    if (evPath &amp;&amp; path !== evPath) {</span>
+<span class="cstat-no" title="statement not covered" >      fsWatchBroadcast(</span>
         sysPath.resolve(path, evPath), 'listeners', sysPath.join(path, evPath)
       );
     }
   };
-<span class="cstat-no" title="statement not covered">  try {</span>
-<span class="cstat-no" title="statement not covered">    return fs.watch(path, options, handleEvent);</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    return fs.watch(path, options, handleEvent);</span>
   } catch (error) {
-<span class="cstat-no" title="statement not covered">    errHandler(error);</span>
+<span class="cstat-no" title="statement not covered" >    errHandler(error);</span>
   }
 }
 &nbsp;
@@ -1226,10 +1228,10 @@ var FsWatchInstances = Object.create(null);
 // * val[1..3]  - arguments to be passed to listeners
 &nbsp;
 // Returns nothing
-<span class="fstat-no" title="function not covered">function fsWatchBroadcast(fullPath, type, val1, val2, val3) {</span>
-<span class="cstat-no" title="statement not covered">  if (!FsWatchInstances[fullPath]) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">  FsWatchInstances[fullPath][type].forEach(<span class="fstat-no" title="function not covered">function(listener) {</span></span>
-<span class="cstat-no" title="statement not covered">    listener(val1, val2, val3);</span>
+<span class="fstat-no" title="function not covered" >function fsWatchBroadcast(fullPath, type, val1, val2, val3) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!FsWatchInstances[fullPath]) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >  FsWatchInstances[fullPath][type].forEach(<span class="fstat-no" title="function not covered" >function(listener) {</span></span>
+<span class="cstat-no" title="statement not covered" >    listener(val1, val2, val3);</span>
   });
 }
 &nbsp;
@@ -1242,61 +1244,61 @@ var FsWatchInstances = Object.create(null);
 // * handlers   - object, container for event listener functions
 &nbsp;
 // Returns close function
-<span class="fstat-no" title="function not covered">function setFsWatchListener(path, fullPath, options, handlers) {</span>
-<span class="cstat-no" title="statement not covered">  var listener = handlers.listener;</span>
-<span class="cstat-no" title="statement not covered">  var errHandler = handlers.errHandler;</span>
-<span class="cstat-no" title="statement not covered">  var rawEmitter = handlers.rawEmitter;</span>
-<span class="cstat-no" title="statement not covered">  var container = FsWatchInstances[fullPath];</span>
-<span class="cstat-no" title="statement not covered">  var watcher;</span>
-<span class="cstat-no" title="statement not covered">  if (!options.persistent) {</span>
-<span class="cstat-no" title="statement not covered">    watcher = createFsWatchInstance(</span>
+<span class="fstat-no" title="function not covered" >function setFsWatchListener(path, fullPath, options, handlers) {</span>
+<span class="cstat-no" title="statement not covered" >  var listener = handlers.listener;</span>
+<span class="cstat-no" title="statement not covered" >  var errHandler = handlers.errHandler;</span>
+<span class="cstat-no" title="statement not covered" >  var rawEmitter = handlers.rawEmitter;</span>
+<span class="cstat-no" title="statement not covered" >  var container = FsWatchInstances[fullPath];</span>
+<span class="cstat-no" title="statement not covered" >  var watcher;</span>
+<span class="cstat-no" title="statement not covered" >  if (!options.persistent) {</span>
+<span class="cstat-no" title="statement not covered" >    watcher = createFsWatchInstance(</span>
       path, options, listener, errHandler, rawEmitter
     );
-<span class="cstat-no" title="statement not covered">    return watcher.close.bind(watcher);</span>
+<span class="cstat-no" title="statement not covered" >    return watcher.close.bind(watcher);</span>
   }
-<span class="cstat-no" title="statement not covered">  if (!container) {</span>
-<span class="cstat-no" title="statement not covered">    watcher = createFsWatchInstance(</span>
+<span class="cstat-no" title="statement not covered" >  if (!container) {</span>
+<span class="cstat-no" title="statement not covered" >    watcher = createFsWatchInstance(</span>
       path,
       options,
       fsWatchBroadcast.bind(null, fullPath, 'listeners'),
       errHandler, // no need to use broadcast here
       fsWatchBroadcast.bind(null, fullPath, 'rawEmitters')
     );
-<span class="cstat-no" title="statement not covered">    if (!watcher) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">    var broadcastErr = fsWatchBroadcast.bind(null, fullPath, 'errHandlers');</span>
-<span class="cstat-no" title="statement not covered">    watcher.on('error', <span class="fstat-no" title="function not covered">function(error) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!watcher) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    var broadcastErr = fsWatchBroadcast.bind(null, fullPath, 'errHandlers');</span>
+<span class="cstat-no" title="statement not covered" >    watcher.on('error', <span class="fstat-no" title="function not covered" >function(error) {</span></span>
       // Workaround for https://github.com/joyent/node/issues/4337
-<span class="cstat-no" title="statement not covered">      if (process.platform === 'win32' &amp;&amp; error.code === 'EPERM') {</span>
-<span class="cstat-no" title="statement not covered">        fs.open(path, 'r', <span class="fstat-no" title="function not covered">function(err, fd) {</span></span>
-<span class="cstat-no" title="statement not covered">          if (fd) <span class="cstat-no" title="statement not covered">fs.close(fd);</span></span>
-<span class="cstat-no" title="statement not covered">          if (!err) <span class="cstat-no" title="statement not covered">broadcastErr(error);</span></span>
+<span class="cstat-no" title="statement not covered" >      if (process.platform === 'win32' &amp;&amp; error.code === 'EPERM') {</span>
+<span class="cstat-no" title="statement not covered" >        fs.open(path, 'r', <span class="fstat-no" title="function not covered" >function(err, fd) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (fd) <span class="cstat-no" title="statement not covered" >fs.close(fd);</span></span>
+<span class="cstat-no" title="statement not covered" >          if (!err) <span class="cstat-no" title="statement not covered" >broadcastErr(error);</span></span>
         });
       } else {
-<span class="cstat-no" title="statement not covered">        broadcastErr(error);</span>
+<span class="cstat-no" title="statement not covered" >        broadcastErr(error);</span>
       }
     });
-<span class="cstat-no" title="statement not covered">    container = FsWatchInstances[fullPath] = {</span>
+<span class="cstat-no" title="statement not covered" >    container = FsWatchInstances[fullPath] = {</span>
       listeners: [listener],
       errHandlers: [errHandler],
       rawEmitters: [rawEmitter],
       watcher: watcher
     };
   } else {
-<span class="cstat-no" title="statement not covered">    container.listeners.push(listener);</span>
-<span class="cstat-no" title="statement not covered">    container.errHandlers.push(errHandler);</span>
-<span class="cstat-no" title="statement not covered">    container.rawEmitters.push(rawEmitter);</span>
+<span class="cstat-no" title="statement not covered" >    container.listeners.push(listener);</span>
+<span class="cstat-no" title="statement not covered" >    container.errHandlers.push(errHandler);</span>
+<span class="cstat-no" title="statement not covered" >    container.rawEmitters.push(rawEmitter);</span>
   }
-<span class="cstat-no" title="statement not covered">  var listenerIndex = container.listeners.length - 1;</span>
+<span class="cstat-no" title="statement not covered" >  var listenerIndex = container.listeners.length - 1;</span>
 &nbsp;
   // removes this instance's listeners and closes the underlying fs.watch
   // instance if there are no more listeners left
-<span class="cstat-no" title="statement not covered">  return <span class="fstat-no" title="function not covered">function close() {</span></span>
-<span class="cstat-no" title="statement not covered">    delete container.listeners[listenerIndex];</span>
-<span class="cstat-no" title="statement not covered">    delete container.errHandlers[listenerIndex];</span>
-<span class="cstat-no" title="statement not covered">    delete container.rawEmitters[listenerIndex];</span>
-<span class="cstat-no" title="statement not covered">    if (!Object.keys(container.listeners).length) {</span>
-<span class="cstat-no" title="statement not covered">      container.watcher.close();</span>
-<span class="cstat-no" title="statement not covered">      delete FsWatchInstances[fullPath];</span>
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >function close() {</span></span>
+<span class="cstat-no" title="statement not covered" >    delete container.listeners[listenerIndex];</span>
+<span class="cstat-no" title="statement not covered" >    delete container.errHandlers[listenerIndex];</span>
+<span class="cstat-no" title="statement not covered" >    delete container.rawEmitters[listenerIndex];</span>
+<span class="cstat-no" title="statement not covered" >    if (!Object.keys(container.listeners).length) {</span>
+<span class="cstat-no" title="statement not covered" >      container.watcher.close();</span>
+<span class="cstat-no" title="statement not covered" >      delete FsWatchInstances[fullPath];</span>
     }
   };
 }
@@ -1316,13 +1318,13 @@ var FsWatchFileInstances = Object.create(null);
 // * handlers   - object, container for event listener functions
 &nbsp;
 // Returns close function
-<span class="fstat-no" title="function not covered">function setFsWatchFileListener(path, fullPath, options, handlers) {</span>
-<span class="cstat-no" title="statement not covered">  var listener = handlers.listener;</span>
-<span class="cstat-no" title="statement not covered">  var rawEmitter = handlers.rawEmitter;</span>
-<span class="cstat-no" title="statement not covered">  var container = FsWatchFileInstances[fullPath];</span>
-<span class="cstat-no" title="statement not covered">  var listeners = [];</span>
-<span class="cstat-no" title="statement not covered">  var rawEmitters = [];</span>
-<span class="cstat-no" title="statement not covered">  if (</span>
+<span class="fstat-no" title="function not covered" >function setFsWatchFileListener(path, fullPath, options, handlers) {</span>
+<span class="cstat-no" title="statement not covered" >  var listener = handlers.listener;</span>
+<span class="cstat-no" title="statement not covered" >  var rawEmitter = handlers.rawEmitter;</span>
+<span class="cstat-no" title="statement not covered" >  var container = FsWatchFileInstances[fullPath];</span>
+<span class="cstat-no" title="statement not covered" >  var listeners = [];</span>
+<span class="cstat-no" title="statement not covered" >  var rawEmitters = [];</span>
+<span class="cstat-no" title="statement not covered" >  if (</span>
     container &amp;&amp; (
       container.options.persistent &lt; options.persistent ||
       container.options.interval &gt; options.interval
@@ -1332,51 +1334,51 @@ var FsWatchFileInstances = Object.create(null);
     // This creates some unlikely edge case issues if the user mixes
     // settings in a very weird way, but solving for those cases
     // doesn't seem worthwhile for the added complexity.
-<span class="cstat-no" title="statement not covered">    listeners = container.listeners;</span>
-<span class="cstat-no" title="statement not covered">    rawEmitters = container.rawEmitters;</span>
-<span class="cstat-no" title="statement not covered">    fs.unwatchFile(fullPath);</span>
-<span class="cstat-no" title="statement not covered">    container = false;</span>
+<span class="cstat-no" title="statement not covered" >    listeners = container.listeners;</span>
+<span class="cstat-no" title="statement not covered" >    rawEmitters = container.rawEmitters;</span>
+<span class="cstat-no" title="statement not covered" >    fs.unwatchFile(fullPath);</span>
+<span class="cstat-no" title="statement not covered" >    container = false;</span>
   }
-<span class="cstat-no" title="statement not covered">  if (!container) {</span>
-<span class="cstat-no" title="statement not covered">    listeners.push(listener);</span>
-<span class="cstat-no" title="statement not covered">    rawEmitters.push(rawEmitter);</span>
-<span class="cstat-no" title="statement not covered">    container = FsWatchFileInstances[fullPath] = {</span>
+<span class="cstat-no" title="statement not covered" >  if (!container) {</span>
+<span class="cstat-no" title="statement not covered" >    listeners.push(listener);</span>
+<span class="cstat-no" title="statement not covered" >    rawEmitters.push(rawEmitter);</span>
+<span class="cstat-no" title="statement not covered" >    container = FsWatchFileInstances[fullPath] = {</span>
       listeners: listeners,
       rawEmitters: rawEmitters,
       options: options,
-      watcher: fs.watchFile(fullPath, options, <span class="fstat-no" title="function not covered">function(curr, prev) {</span>
-<span class="cstat-no" title="statement not covered">        container.rawEmitters.forEach(<span class="fstat-no" title="function not covered">function(rawEmitter) {</span></span>
-<span class="cstat-no" title="statement not covered">          rawEmitter('change', fullPath, {curr: curr, prev: prev});</span>
+      watcher: fs.watchFile(fullPath, options, <span class="fstat-no" title="function not covered" >function(curr, prev) {</span>
+<span class="cstat-no" title="statement not covered" >        container.rawEmitters.forEach(<span class="fstat-no" title="function not covered" >function(rawEmitter) {</span></span>
+<span class="cstat-no" title="statement not covered" >          rawEmitter('change', fullPath, {curr: curr, prev: prev});</span>
         });
-<span class="cstat-no" title="statement not covered">        var currmtime = curr.mtime.getTime();</span>
-<span class="cstat-no" title="statement not covered">        if (curr.size !== prev.size || currmtime &gt; prev.mtime.getTime() || currmtime === 0) {</span>
-<span class="cstat-no" title="statement not covered">          container.listeners.forEach(<span class="fstat-no" title="function not covered">function(listener) {</span></span>
-<span class="cstat-no" title="statement not covered">            listener(path, curr);</span>
+<span class="cstat-no" title="statement not covered" >        var currmtime = curr.mtime.getTime();</span>
+<span class="cstat-no" title="statement not covered" >        if (curr.size !== prev.size || currmtime &gt; prev.mtime.getTime() || currmtime === 0) {</span>
+<span class="cstat-no" title="statement not covered" >          container.listeners.forEach(<span class="fstat-no" title="function not covered" >function(listener) {</span></span>
+<span class="cstat-no" title="statement not covered" >            listener(path, curr);</span>
           });
         }
       })
     };
   } else {
-<span class="cstat-no" title="statement not covered">    container.listeners.push(listener);</span>
-<span class="cstat-no" title="statement not covered">    container.rawEmitters.push(rawEmitter);</span>
+<span class="cstat-no" title="statement not covered" >    container.listeners.push(listener);</span>
+<span class="cstat-no" title="statement not covered" >    container.rawEmitters.push(rawEmitter);</span>
   }
-<span class="cstat-no" title="statement not covered">  var listenerIndex = container.listeners.length - 1;</span>
+<span class="cstat-no" title="statement not covered" >  var listenerIndex = container.listeners.length - 1;</span>
 &nbsp;
   // removes this instance's listeners and closes the underlying fs.watchFile
   // instance if there are no more listeners left
-<span class="cstat-no" title="statement not covered">  return <span class="fstat-no" title="function not covered">function close() {</span></span>
-<span class="cstat-no" title="statement not covered">    delete container.listeners[listenerIndex];</span>
-<span class="cstat-no" title="statement not covered">    delete container.rawEmitters[listenerIndex];</span>
-<span class="cstat-no" title="statement not covered">    if (!Object.keys(container.listeners).length) {</span>
-<span class="cstat-no" title="statement not covered">      fs.unwatchFile(fullPath);</span>
-<span class="cstat-no" title="statement not covered">      delete FsWatchFileInstances[fullPath];</span>
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >function close() {</span></span>
+<span class="cstat-no" title="statement not covered" >    delete container.listeners[listenerIndex];</span>
+<span class="cstat-no" title="statement not covered" >    delete container.rawEmitters[listenerIndex];</span>
+<span class="cstat-no" title="statement not covered" >    if (!Object.keys(container.listeners).length) {</span>
+<span class="cstat-no" title="statement not covered" >      fs.unwatchFile(fullPath);</span>
+<span class="cstat-no" title="statement not covered" >      delete FsWatchFileInstances[fullPath];</span>
     }
   };
 }
 &nbsp;
 // fake constructor for attaching nodefs-specific prototype methods that
 // will be copied to FSWatcher's prototype
-<span class="fstat-no" title="function not covered">function NodeFsHandler() {</span>}
+<span class="fstat-no" title="function not covered" >function NodeFsHandler() {</span>}
 &nbsp;
 // Private method: Watch file for changes with fs.watchFile or fs.watch.
 &nbsp;
@@ -1385,31 +1387,31 @@ var FsWatchFileInstances = Object.create(null);
 &nbsp;
 // Returns close function for the watcher instance
 NodeFsHandler.prototype._watchWithNodeFs =
-<span class="fstat-no" title="function not covered">function(path, listener) {</span>
-<span class="cstat-no" title="statement not covered">  var directory = sysPath.dirname(path);</span>
-<span class="cstat-no" title="statement not covered">  var basename = sysPath.basename(path);</span>
-<span class="cstat-no" title="statement not covered">  var parent = this._getWatchedDir(directory);</span>
-<span class="cstat-no" title="statement not covered">  parent.add(basename);</span>
-<span class="cstat-no" title="statement not covered">  var absolutePath = sysPath.resolve(path);</span>
-<span class="cstat-no" title="statement not covered">  var options = {persistent: this.options.persistent};</span>
-<span class="cstat-no" title="statement not covered">  if (!listener) <span class="cstat-no" title="statement not covered">listener = Function.prototype; </span></span>// empty function
+<span class="fstat-no" title="function not covered" >function(path, listener) {</span>
+<span class="cstat-no" title="statement not covered" >  var directory = sysPath.dirname(path);</span>
+<span class="cstat-no" title="statement not covered" >  var basename = sysPath.basename(path);</span>
+<span class="cstat-no" title="statement not covered" >  var parent = this._getWatchedDir(directory);</span>
+<span class="cstat-no" title="statement not covered" >  parent.add(basename);</span>
+<span class="cstat-no" title="statement not covered" >  var absolutePath = sysPath.resolve(path);</span>
+<span class="cstat-no" title="statement not covered" >  var options = {persistent: this.options.persistent};</span>
+<span class="cstat-no" title="statement not covered" >  if (!listener) <span class="cstat-no" title="statement not covered" >listener = Function.prototype; </span></span>// empty function
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var closer;</span>
-<span class="cstat-no" title="statement not covered">  if (this.options.usePolling) {</span>
-<span class="cstat-no" title="statement not covered">    options.interval = this.enableBinaryInterval &amp;&amp; isBinaryPath(basename) ?</span>
+<span class="cstat-no" title="statement not covered" >  var closer;</span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.usePolling) {</span>
+<span class="cstat-no" title="statement not covered" >    options.interval = this.enableBinaryInterval &amp;&amp; isBinaryPath(basename) ?</span>
       this.options.binaryInterval : this.options.interval;
-<span class="cstat-no" title="statement not covered">    closer = setFsWatchFileListener(path, absolutePath, options, {</span>
+<span class="cstat-no" title="statement not covered" >    closer = setFsWatchFileListener(path, absolutePath, options, {</span>
       listener: listener,
       rawEmitter: this.emit.bind(this, 'raw')
     });
   } else {
-<span class="cstat-no" title="statement not covered">    closer = setFsWatchListener(path, absolutePath, options, {</span>
+<span class="cstat-no" title="statement not covered" >    closer = setFsWatchListener(path, absolutePath, options, {</span>
       listener: listener,
       errHandler: this._handleError.bind(this),
       rawEmitter: this.emit.bind(this, 'raw')
     });
   }
-<span class="cstat-no" title="statement not covered">  return closer;</span>
+<span class="cstat-no" title="statement not covered" >  return closer;</span>
 };
 &nbsp;
 // Private method: Watch a file and emit add event if warranted
@@ -1421,40 +1423,40 @@ NodeFsHandler.prototype._watchWithNodeFs =
 &nbsp;
 // Returns close function for the watcher instance
 NodeFsHandler.prototype._handleFile =
-<span class="fstat-no" title="function not covered">function(file, stats, initialAdd, callback) {</span>
-<span class="cstat-no" title="statement not covered">  var dirname = sysPath.dirname(file);</span>
-<span class="cstat-no" title="statement not covered">  var basename = sysPath.basename(file);</span>
-<span class="cstat-no" title="statement not covered">  var parent = this._getWatchedDir(dirname);</span>
+<span class="fstat-no" title="function not covered" >function(file, stats, initialAdd, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var dirname = sysPath.dirname(file);</span>
+<span class="cstat-no" title="statement not covered" >  var basename = sysPath.basename(file);</span>
+<span class="cstat-no" title="statement not covered" >  var parent = this._getWatchedDir(dirname);</span>
 &nbsp;
   // if the file is already being watched, do nothing
-<span class="cstat-no" title="statement not covered">  if (parent.has(basename)) <span class="cstat-no" title="statement not covered">return callback();</span></span>
+<span class="cstat-no" title="statement not covered" >  if (parent.has(basename)) <span class="cstat-no" title="statement not covered" >return callback();</span></span>
 &nbsp;
   // kick off the watcher
-<span class="cstat-no" title="statement not covered">  var closer = this._watchWithNodeFs(file, <span class="fstat-no" title="function not covered">function(path, newStats) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (!this._throttle('watch', file, 5)) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">    if (!newStats || newStats &amp;&amp; newStats.mtime.getTime() === 0) {</span>
-<span class="cstat-no" title="statement not covered">      fs.stat(file, <span class="fstat-no" title="function not covered">function(error, newStats) {</span></span>
+<span class="cstat-no" title="statement not covered" >  var closer = this._watchWithNodeFs(file, <span class="fstat-no" title="function not covered" >function(path, newStats) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!this._throttle('watch', file, 5)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!newStats || newStats &amp;&amp; newStats.mtime.getTime() === 0) {</span>
+<span class="cstat-no" title="statement not covered" >      fs.stat(file, <span class="fstat-no" title="function not covered" >function(error, newStats) {</span></span>
         // Fix issues where mtime is null but file is still present
-<span class="cstat-no" title="statement not covered">        if (error) {</span>
-<span class="cstat-no" title="statement not covered">          this._remove(dirname, basename);</span>
+<span class="cstat-no" title="statement not covered" >        if (error) {</span>
+<span class="cstat-no" title="statement not covered" >          this._remove(dirname, basename);</span>
         } else {
-<span class="cstat-no" title="statement not covered">          this._emit('change', file, newStats);</span>
+<span class="cstat-no" title="statement not covered" >          this._emit('change', file, newStats);</span>
         }
       }.bind(this));
     // add is about to be emitted if file not already tracked in parent
-    } else <span class="cstat-no" title="statement not covered">if (parent.has(basename)) {</span>
-<span class="cstat-no" title="statement not covered">      this._emit('change', file, newStats);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (parent.has(basename)) {</span>
+<span class="cstat-no" title="statement not covered" >      this._emit('change', file, newStats);</span>
     }
   }.bind(this));
 &nbsp;
   // emit an add event if we're supposed to
-<span class="cstat-no" title="statement not covered">  if (!(initialAdd &amp;&amp; this.options.ignoreInitial)) {</span>
-<span class="cstat-no" title="statement not covered">    if (!this._throttle('add', file, 0)) <span class="cstat-no" title="statement not covered">return;</span></span>
-<span class="cstat-no" title="statement not covered">    this._emit('add', file, stats);</span>
+<span class="cstat-no" title="statement not covered" >  if (!(initialAdd &amp;&amp; this.options.ignoreInitial)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!this._throttle('add', file, 0)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    this._emit('add', file, stats);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (callback) <span class="cstat-no" title="statement not covered">callback();</span></span>
-<span class="cstat-no" title="statement not covered">  return closer;</span>
+<span class="cstat-no" title="statement not covered" >  if (callback) <span class="cstat-no" title="statement not covered" >callback();</span></span>
+<span class="cstat-no" title="statement not covered" >  return closer;</span>
 };
 &nbsp;
 // Private method: Handle symlinks encountered while reading a dir
@@ -1466,32 +1468,32 @@ NodeFsHandler.prototype._handleFile =
 &nbsp;
 // Returns true if no more processing is needed for this entry.
 NodeFsHandler.prototype._handleSymlink =
-<span class="fstat-no" title="function not covered">function(entry, directory, path, item) {</span>
-<span class="cstat-no" title="statement not covered">  var full = entry.fullPath;</span>
-<span class="cstat-no" title="statement not covered">  var dir = this._getWatchedDir(directory);</span>
+<span class="fstat-no" title="function not covered" >function(entry, directory, path, item) {</span>
+<span class="cstat-no" title="statement not covered" >  var full = entry.fullPath;</span>
+<span class="cstat-no" title="statement not covered" >  var dir = this._getWatchedDir(directory);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (!this.options.followSymlinks) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!this.options.followSymlinks) {</span>
     // watch symlink directly (don't follow) and detect changes
-<span class="cstat-no" title="statement not covered">    this._readyCount++;</span>
-<span class="cstat-no" title="statement not covered">    fs.realpath(path, <span class="fstat-no" title="function not covered">function(error, linkPath) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (dir.has(item)) {</span>
-<span class="cstat-no" title="statement not covered">        if (this._symlinkPaths[full] !== linkPath) {</span>
-<span class="cstat-no" title="statement not covered">          this._symlinkPaths[full] = linkPath;</span>
-<span class="cstat-no" title="statement not covered">          this._emit('change', path, entry.stat);</span>
+<span class="cstat-no" title="statement not covered" >    this._readyCount++;</span>
+<span class="cstat-no" title="statement not covered" >    fs.realpath(path, <span class="fstat-no" title="function not covered" >function(error, linkPath) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (dir.has(item)) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this._symlinkPaths[full] !== linkPath) {</span>
+<span class="cstat-no" title="statement not covered" >          this._symlinkPaths[full] = linkPath;</span>
+<span class="cstat-no" title="statement not covered" >          this._emit('change', path, entry.stat);</span>
         }
       } else {
-<span class="cstat-no" title="statement not covered">        dir.add(item);</span>
-<span class="cstat-no" title="statement not covered">        this._symlinkPaths[full] = linkPath;</span>
-<span class="cstat-no" title="statement not covered">        this._emit('add', path, entry.stat);</span>
+<span class="cstat-no" title="statement not covered" >        dir.add(item);</span>
+<span class="cstat-no" title="statement not covered" >        this._symlinkPaths[full] = linkPath;</span>
+<span class="cstat-no" title="statement not covered" >        this._emit('add', path, entry.stat);</span>
       }
-<span class="cstat-no" title="statement not covered">      this._emitReady();</span>
+<span class="cstat-no" title="statement not covered" >      this._emitReady();</span>
     }.bind(this));
-<span class="cstat-no" title="statement not covered">    return true;</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
   }
 &nbsp;
   // don't follow the same symlink more than once
-<span class="cstat-no" title="statement not covered">  if (this._symlinkPaths[full]) <span class="cstat-no" title="statement not covered">return true;</span></span>
-  else <span class="cstat-no" title="statement not covered">this._symlinkPaths[full] = true;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._symlinkPaths[full]) <span class="cstat-no" title="statement not covered" >return true;</span></span>
+  else <span class="cstat-no" title="statement not covered" >this._symlinkPaths[full] = true;</span>
 };
 &nbsp;
 // Private method: Read directory to add / remove files from `@watched` list
@@ -1507,64 +1509,64 @@ NodeFsHandler.prototype._handleSymlink =
 &nbsp;
 // Returns close function for the watcher instance
 NodeFsHandler.prototype._handleDir =
-<span class="fstat-no" title="function not covered">function(dir, stats, initialAdd, depth, target, wh, callback) {</span>
-<span class="cstat-no" title="statement not covered">  var parentDir = this._getWatchedDir(sysPath.dirname(dir));</span>
-<span class="cstat-no" title="statement not covered">  var tracked = parentDir.has(sysPath.basename(dir));</span>
-<span class="cstat-no" title="statement not covered">  if (!(initialAdd &amp;&amp; this.options.ignoreInitial) &amp;&amp; !target &amp;&amp; !tracked) {</span>
-<span class="cstat-no" title="statement not covered">    if (!wh.hasGlob || wh.globFilter(dir)) <span class="cstat-no" title="statement not covered">this._emit('addDir', dir, stats);</span></span>
+<span class="fstat-no" title="function not covered" >function(dir, stats, initialAdd, depth, target, wh, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var parentDir = this._getWatchedDir(sysPath.dirname(dir));</span>
+<span class="cstat-no" title="statement not covered" >  var tracked = parentDir.has(sysPath.basename(dir));</span>
+<span class="cstat-no" title="statement not covered" >  if (!(initialAdd &amp;&amp; this.options.ignoreInitial) &amp;&amp; !target &amp;&amp; !tracked) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!wh.hasGlob || wh.globFilter(dir)) <span class="cstat-no" title="statement not covered" >this._emit('addDir', dir, stats);</span></span>
   }
 &nbsp;
   // ensure dir is tracked (harmless if redundant)
-<span class="cstat-no" title="statement not covered">  parentDir.add(sysPath.basename(dir));</span>
-<span class="cstat-no" title="statement not covered">  this._getWatchedDir(dir);</span>
+<span class="cstat-no" title="statement not covered" >  parentDir.add(sysPath.basename(dir));</span>
+<span class="cstat-no" title="statement not covered" >  this._getWatchedDir(dir);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var read = <span class="fstat-no" title="function not covered">function(directory, initialAdd, done) {</span></span>
+<span class="cstat-no" title="statement not covered" >  var read = <span class="fstat-no" title="function not covered" >function(directory, initialAdd, done) {</span></span>
     // Normalize the directory name on Windows
-<span class="cstat-no" title="statement not covered">    directory = sysPath.join(directory, '');</span>
+<span class="cstat-no" title="statement not covered" >    directory = sysPath.join(directory, '');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!wh.hasGlob) {</span>
-<span class="cstat-no" title="statement not covered">      var throttler = this._throttle('readdir', directory, 1000);</span>
-<span class="cstat-no" title="statement not covered">      if (!throttler) <span class="cstat-no" title="statement not covered">return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!wh.hasGlob) {</span>
+<span class="cstat-no" title="statement not covered" >      var throttler = this._throttle('readdir', directory, 1000);</span>
+<span class="cstat-no" title="statement not covered" >      if (!throttler) <span class="cstat-no" title="statement not covered" >return;</span></span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var previous = this._getWatchedDir(wh.path);</span>
-<span class="cstat-no" title="statement not covered">    var current = [];</span>
+<span class="cstat-no" title="statement not covered" >    var previous = this._getWatchedDir(wh.path);</span>
+<span class="cstat-no" title="statement not covered" >    var current = [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    readdirp({</span>
+<span class="cstat-no" title="statement not covered" >    readdirp({</span>
       root: directory,
       entryType: 'all',
       fileFilter: wh.filterPath,
       directoryFilter: wh.filterDir,
       depth: 0,
       lstat: true
-    }).on('data', <span class="fstat-no" title="function not covered">function(entry) {</span>
-<span class="cstat-no" title="statement not covered">      var item = entry.path;</span>
-<span class="cstat-no" title="statement not covered">      var path = sysPath.join(directory, item);</span>
-<span class="cstat-no" title="statement not covered">      current.push(item);</span>
+    }).on('data', <span class="fstat-no" title="function not covered" >function(entry) {</span>
+<span class="cstat-no" title="statement not covered" >      var item = entry.path;</span>
+<span class="cstat-no" title="statement not covered" >      var path = sysPath.join(directory, item);</span>
+<span class="cstat-no" title="statement not covered" >      current.push(item);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (entry.stat.isSymbolicLink() &amp;&amp;</span>
-        this._handleSymlink(entry, directory, path, item)) <span class="cstat-no" title="statement not covered">return;</span>
+<span class="cstat-no" title="statement not covered" >      if (entry.stat.isSymbolicLink() &amp;&amp;</span>
+        this._handleSymlink(entry, directory, path, item)) <span class="cstat-no" title="statement not covered" >return;</span>
 &nbsp;
       // Files that present in current directory snapshot
       // but absent in previous are added to watch list and
       // emit `add` event.
-<span class="cstat-no" title="statement not covered">      if (item === target || !target &amp;&amp; !previous.has(item)) {</span>
-<span class="cstat-no" title="statement not covered">        this._readyCount++;</span>
+<span class="cstat-no" title="statement not covered" >      if (item === target || !target &amp;&amp; !previous.has(item)) {</span>
+<span class="cstat-no" title="statement not covered" >        this._readyCount++;</span>
 &nbsp;
         // ensure relativeness of path is preserved in case of watcher reuse
-<span class="cstat-no" title="statement not covered">        path = sysPath.join(dir, sysPath.relative(dir, path));</span>
+<span class="cstat-no" title="statement not covered" >        path = sysPath.join(dir, sysPath.relative(dir, path));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">        this._addToNodeFs(path, initialAdd, wh, depth + 1);</span>
+<span class="cstat-no" title="statement not covered" >        this._addToNodeFs(path, initialAdd, wh, depth + 1);</span>
       }
-    }.bind(this)).on('end', <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">      if (throttler) <span class="cstat-no" title="statement not covered">throttler.clear();</span></span>
-<span class="cstat-no" title="statement not covered">      if (done) <span class="cstat-no" title="statement not covered">done();</span></span>
+    }.bind(this)).on('end', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      if (throttler) <span class="cstat-no" title="statement not covered" >throttler.clear();</span></span>
+<span class="cstat-no" title="statement not covered" >      if (done) <span class="cstat-no" title="statement not covered" >done();</span></span>
 &nbsp;
       // Files that absent in current directory snapshot
       // but present in previous emit `remove` event
       // and are removed from @watched[directory].
-<span class="cstat-no" title="statement not covered">      previous.children().filter(<span class="fstat-no" title="function not covered">function(item) {</span></span>
-<span class="cstat-no" title="statement not covered">        return item !== directory &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >      previous.children().filter(<span class="fstat-no" title="function not covered" >function(item) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return item !== directory &amp;&amp;</span>
           current.indexOf(item) === -1 &amp;&amp;
           // in case of intersecting globs;
           // a path may have been filtered out of this readdir, but
@@ -1572,26 +1574,26 @@ NodeFsHandler.prototype._handleDir =
           (!wh.hasGlob || wh.filterPath({
             fullPath: sysPath.resolve(directory, item)
           }));
-      }).forEach(<span class="fstat-no" title="function not covered">function(item) {</span>
-<span class="cstat-no" title="statement not covered">        this._remove(directory, item);</span>
+      }).forEach(<span class="fstat-no" title="function not covered" >function(item) {</span>
+<span class="cstat-no" title="statement not covered" >        this._remove(directory, item);</span>
       }, this);
     }.bind(this)).on('error', this._handleError.bind(this));
   }.bind(this);
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var closer;</span>
+<span class="cstat-no" title="statement not covered" >  var closer;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (this.options.depth == null || depth &lt;= this.options.depth) {</span>
-<span class="cstat-no" title="statement not covered">    if (!target) <span class="cstat-no" title="statement not covered">read(dir, initialAdd, callback);</span></span>
-<span class="cstat-no" title="statement not covered">    closer = this._watchWithNodeFs(dir, <span class="fstat-no" title="function not covered">function(dirPath, stats) {</span></span>
+<span class="cstat-no" title="statement not covered" >  if (this.options.depth == null || depth &lt;= this.options.depth) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!target) <span class="cstat-no" title="statement not covered" >read(dir, initialAdd, callback);</span></span>
+<span class="cstat-no" title="statement not covered" >    closer = this._watchWithNodeFs(dir, <span class="fstat-no" title="function not covered" >function(dirPath, stats) {</span></span>
       // if current directory is removed, do nothing
-<span class="cstat-no" title="statement not covered">      if (stats &amp;&amp; stats.mtime.getTime() === 0) <span class="cstat-no" title="statement not covered">return;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (stats &amp;&amp; stats.mtime.getTime() === 0) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">      read(dirPath, false);</span>
+<span class="cstat-no" title="statement not covered" >      read(dirPath, false);</span>
     });
   } else {
-<span class="cstat-no" title="statement not covered">    callback();</span>
+<span class="cstat-no" title="statement not covered" >    callback();</span>
   }
-<span class="cstat-no" title="statement not covered">  return closer;</span>
+<span class="cstat-no" title="statement not covered" >  return closer;</span>
 };
 &nbsp;
 // Private method: Handle added file, directory, or glob pattern.
@@ -1605,65 +1607,64 @@ NodeFsHandler.prototype._handleDir =
 &nbsp;
 // Returns nothing
 NodeFsHandler.prototype._addToNodeFs =
-<span class="fstat-no" title="function not covered">function(path, initialAdd, priorWh, depth, target, callback) {</span>
-<span class="cstat-no" title="statement not covered">  if (!callback) <span class="cstat-no" title="statement not covered">callback = Function.prototype;</span></span>
-<span class="cstat-no" title="statement not covered">  var ready = this._emitReady;</span>
-<span class="cstat-no" title="statement not covered">  if (this._isIgnored(path) || this.closed) {</span>
-<span class="cstat-no" title="statement not covered">    ready();</span>
-<span class="cstat-no" title="statement not covered">    return callback(null, false);</span>
+<span class="fstat-no" title="function not covered" >function(path, initialAdd, priorWh, depth, target, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!callback) <span class="cstat-no" title="statement not covered" >callback = Function.prototype;</span></span>
+<span class="cstat-no" title="statement not covered" >  var ready = this._emitReady;</span>
+<span class="cstat-no" title="statement not covered" >  if (this._isIgnored(path) || this.closed) {</span>
+<span class="cstat-no" title="statement not covered" >    ready();</span>
+<span class="cstat-no" title="statement not covered" >    return callback(null, false);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var wh = this._getWatchHelpers(path, depth);</span>
-<span class="cstat-no" title="statement not covered">  if (!wh.hasGlob &amp;&amp; priorWh) {</span>
-<span class="cstat-no" title="statement not covered">    wh.hasGlob = priorWh.hasGlob;</span>
-<span class="cstat-no" title="statement not covered">    wh.globFilter = priorWh.globFilter;</span>
-<span class="cstat-no" title="statement not covered">    wh.filterPath = priorWh.filterPath;</span>
-<span class="cstat-no" title="statement not covered">    wh.filterDir = priorWh.filterDir;</span>
+<span class="cstat-no" title="statement not covered" >  var wh = this._getWatchHelpers(path, depth);</span>
+<span class="cstat-no" title="statement not covered" >  if (!wh.hasGlob &amp;&amp; priorWh) {</span>
+<span class="cstat-no" title="statement not covered" >    wh.hasGlob = priorWh.hasGlob;</span>
+<span class="cstat-no" title="statement not covered" >    wh.globFilter = priorWh.globFilter;</span>
+<span class="cstat-no" title="statement not covered" >    wh.filterPath = priorWh.filterPath;</span>
+<span class="cstat-no" title="statement not covered" >    wh.filterDir = priorWh.filterDir;</span>
   }
 &nbsp;
   // evaluate what is at the path we're being asked to watch
-<span class="cstat-no" title="statement not covered">  fs[wh.statMethod](wh.watchPath, <span class="fstat-no" title="function not covered">function(error, stats) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (this._handleError(error)) <span class="cstat-no" title="statement not covered">return callback(null, path);</span></span>
-<span class="cstat-no" title="statement not covered">    if (this._isIgnored(wh.watchPath, stats)) {</span>
-<span class="cstat-no" title="statement not covered">      ready();</span>
-<span class="cstat-no" title="statement not covered">      return callback(null, false);</span>
+<span class="cstat-no" title="statement not covered" >  fs[wh.statMethod](wh.watchPath, <span class="fstat-no" title="function not covered" >function(error, stats) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this._handleError(error)) <span class="cstat-no" title="statement not covered" >return callback(null, path);</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this._isIgnored(wh.watchPath, stats)) {</span>
+<span class="cstat-no" title="statement not covered" >      ready();</span>
+<span class="cstat-no" title="statement not covered" >      return callback(null, false);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var initDir = <span class="fstat-no" title="function not covered">function(dir, target) {</span></span>
-<span class="cstat-no" title="statement not covered">      return this._handleDir(dir, stats, initialAdd, depth, target, wh, ready);</span>
+<span class="cstat-no" title="statement not covered" >    var initDir = <span class="fstat-no" title="function not covered" >function(dir, target) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return this._handleDir(dir, stats, initialAdd, depth, target, wh, ready);</span>
     }.bind(this);
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var closer;</span>
-<span class="cstat-no" title="statement not covered">    if (stats.isDirectory()) {</span>
-<span class="cstat-no" title="statement not covered">      closer = initDir(wh.watchPath, target);</span>
-    } else <span class="cstat-no" title="statement not covered">if (stats.isSymbolicLink()) {</span>
-<span class="cstat-no" title="statement not covered">      var parent = sysPath.dirname(wh.watchPath);</span>
-<span class="cstat-no" title="statement not covered">      this._getWatchedDir(parent).add(wh.watchPath);</span>
-<span class="cstat-no" title="statement not covered">      this._emit('add', wh.watchPath, stats);</span>
-<span class="cstat-no" title="statement not covered">      closer = initDir(parent, path);</span>
+<span class="cstat-no" title="statement not covered" >    var closer;</span>
+<span class="cstat-no" title="statement not covered" >    if (stats.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered" >      closer = initDir(wh.watchPath, target);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (stats.isSymbolicLink()) {</span>
+<span class="cstat-no" title="statement not covered" >      var parent = sysPath.dirname(wh.watchPath);</span>
+<span class="cstat-no" title="statement not covered" >      this._getWatchedDir(parent).add(wh.watchPath);</span>
+<span class="cstat-no" title="statement not covered" >      this._emit('add', wh.watchPath, stats);</span>
+<span class="cstat-no" title="statement not covered" >      closer = initDir(parent, path);</span>
 &nbsp;
       // preserve this symlink's target path
-<span class="cstat-no" title="statement not covered">      fs.realpath(path, <span class="fstat-no" title="function not covered">function(error, targetPath) {</span></span>
-<span class="cstat-no" title="statement not covered">        this._symlinkPaths[sysPath.resolve(path)] = targetPath;</span>
-<span class="cstat-no" title="statement not covered">        ready();</span>
+<span class="cstat-no" title="statement not covered" >      fs.realpath(path, <span class="fstat-no" title="function not covered" >function(error, targetPath) {</span></span>
+<span class="cstat-no" title="statement not covered" >        this._symlinkPaths[sysPath.resolve(path)] = targetPath;</span>
+<span class="cstat-no" title="statement not covered" >        ready();</span>
       }.bind(this));
     } else {
-<span class="cstat-no" title="statement not covered">      closer = this._handleFile(wh.watchPath, stats, initialAdd, ready);</span>
+<span class="cstat-no" title="statement not covered" >      closer = this._handleFile(wh.watchPath, stats, initialAdd, ready);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (closer) <span class="cstat-no" title="statement not covered">this._closers[path] = closer;</span></span>
-<span class="cstat-no" title="statement not covered">    callback(null, false);</span>
+<span class="cstat-no" title="statement not covered" >    if (closer) <span class="cstat-no" title="statement not covered" >this._closers[path] = closer;</span></span>
+<span class="cstat-no" title="statement not covered" >    callback(null, false);</span>
   }.bind(this));
 };
 &nbsp;
 module.exports = NodeFsHandler;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 07:06:13 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sun Apr 16 2017 08:53:28 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
