@@ -1,7 +1,7 @@
 # test coverage for  [chokidar (v1.6.1)](https://github.com/paulmillr/chokidar)  [![npm package](https://img.shields.io/npm/v/npmtest-chokidar.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-chokidar) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-chokidar.svg)](https://travis-ci.org/npmtest/node-npmtest-chokidar)
 #### A neat wrapper around node.js fs.watch / fs.watchFile / fsevents.
 
-[![NPM](https://nodei.co/npm/chokidar.png?downloads=true)](https://www.npmjs.com/package/chokidar)
+[![NPM](https://nodei.co/npm/chokidar.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/chokidar)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-chokidar/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,11 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-chokidar/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-chokidar/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-chokidar/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-chokidar/build/coverage.html/index.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-chokidar/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-chokidar/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-chokidar/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-chokidar%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.html)
+[![test-report](https://npmtest.github.io/node-npmtest-chokidar/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-chokidar/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-chokidar%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-chokidar/build/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-chokidar/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-chokidar/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-chokidar/build/screenCapture.npmPackageListing.svg)
 
@@ -78,19 +78,16 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "paulmillr",
-            "email": "paul@paulmillr.com"
+            "name": "paulmillr"
         },
         {
-            "name": "es128",
-            "email": "elan.shanker+npm@gmail.com"
+            "name": "es128"
         }
     ],
     "name": "chokidar",
     "optionalDependencies": {
         "fsevents": "^1.0.0"
     },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/paulmillr/chokidar.git"
