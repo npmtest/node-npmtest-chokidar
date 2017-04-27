@@ -1,6 +1,6 @@
 # npmtest-chokidar
 
-#### test coverage for  [chokidar (v1.6.1)](https://github.com/paulmillr/chokidar)  [![npm package](https://img.shields.io/npm/v/npmtest-chokidar.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-chokidar) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-chokidar.svg)](https://travis-ci.org/npmtest/node-npmtest-chokidar)
+#### basic test coverage for  [chokidar (v1.6.1)](https://github.com/paulmillr/chokidar)  [![npm package](https://img.shields.io/npm/v/npmtest-chokidar.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-chokidar) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-chokidar.svg)](https://travis-ci.org/npmtest/node-npmtest-chokidar)
 
 #### A neat wrapper around node.js fs.watch / fs.watchFile / fsevents.
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-chokidar/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-chokidar/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-chokidar/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-chokidar/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-chokidar/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-chokidar/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-chokidar/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-chokidar/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-chokidar/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-chokidar/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-chokidar/build/coverage.html/index.html)
 
@@ -105,7 +105,8 @@
         "ci-test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls",
         "test": "istanbul test node_modules/mocha/bin/_mocha"
     },
-    "version": "1.6.1"
+    "version": "1.6.1",
+    "bin": {}
 }
 ```
 
